@@ -1,10 +1,14 @@
 import React from "react";
-import {BrowserRouter, Route} from "react-router-dom";
-import logo from "../logo.svg";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import './RouterView.css'
 import App from "../App";
-import Login from "../pages/login/Login";
-import Test from "../pages/test/Test";
+import Login from "../login/Login";
+import Test from "../test/Test";
+import UserIndex from "../components/user/UserIndex";
+import BtnTest from "../test/BtnTest";
+import Home from "../components/pages/Home";
+import List from "../components/list/List";
+// import ListC from "../components/list/ListC";
 
 export default class RouterView extends React.Component {
   constructor(props) {
@@ -21,12 +25,28 @@ export default class RouterView extends React.Component {
               <Login/>
             </Route>
             <Route path="/user" render={() =>
-                <div className="App">
-                  <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Hengist Medicine Manager</h2>
-                  </header>
-                </div>
+                <UserIndex>
+                  {/*<BtnTest count={5}/>*/}
+                  <Switch>
+                    <Route path="/user/home">
+                      <Home/>
+                    </Route>
+                    <Route path="/user/one">
+                      <List/>
+                    </Route>
+    
+                    <Route path="/user/two">
+                      {/*<ListC/>*/}
+                    </Route>
+                    <Route path="/user/three">
+                      <listDemo/>
+                    </Route>
+    
+                    <Route >
+                      {/*<NotMatch/>*/}
+                    </Route>
+                  </Switch>
+                </UserIndex>
             }/>
           </App>
         </BrowserRouter>

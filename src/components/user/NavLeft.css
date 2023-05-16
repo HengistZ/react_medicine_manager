@@ -1,0 +1,56 @@
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 1.5s linear;
+  }
+}
+
+.nav-left-main{
+  height: calc(100vh);
+  width: 100%;
+  flex-flow: column ;
+  backdrop-filter: blur(6px);
+/*.logo{*/
+/*  height: calc(15vh);*/
+/*  padding-left: 20px;*/
+/*  background :rgba(0,0,0,0);*/
+/*  backdrop-filter: blur(6px);*/
+}
+
+h1{
+  color: #ffffff;
+  font-size: 25px;
+  display: inline-block;
+  vertical-align: center;
+  margin-top: 6vmin;
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+
+.App-logo{
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  height: 5vmin;
+}
+
+.buttons{
+  cursor: pointer;
+  border: none;
+  background :rgba(0,0,0,0);
+  text-align: center;
+  outline: none;
+  transition: 0.4s;
+  width: 100%;
+  font-size: 15px;
+  color: white;
+  padding-left: 0;
+  margin-left: 0;
+  height: calc(7.5vh);
+}
+
+.nav{
+  backdrop-filter: blur(6px);
+  height: calc(85vh);
+}
+
+

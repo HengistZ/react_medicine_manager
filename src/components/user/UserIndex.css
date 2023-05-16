@@ -1,0 +1,15 @@
+.container{
+  /*height: calc(100vh);*/
+  background: url("../../../public/navleftBg.jpg");
+  background-size: 100% 100%;
+}
+.nav-left {
+  /*background-color: blue;*/
+  /*height: calc(100vh);*/
+}
+
+.main {
+  /*background-color: aqua;*/
+}
+
+

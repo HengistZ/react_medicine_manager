@@ -2,6 +2,7 @@ import React from "react";
 import {UserOutlined, LockOutlined} from '@ant-design/icons';
 import {Form, Input, Button} from 'antd';
 import {withRouter} from 'react-router-dom';
+import "./Login.css"
 
 class LoginBox extends React.Component {
   constructor(props) {
@@ -13,12 +14,12 @@ class LoginBox extends React.Component {
   }
   
   submit = () => {
-    this.props.history.push("/user");
+    this.props.history.push("/user/home");
   }
   
   render() {
     return (
-        <div>
+        <div className={"login-box"}>
           <Form className={"LoginForm"}>
             <Form.Item name="username"
                        rules={[{required: true, message: '账号不能为空!!!'}]}>

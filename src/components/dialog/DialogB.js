@@ -1,0 +1,59 @@
+import React, {Component} from 'react'
+import {Modal, Form, Input, Button} from 'antd'
+import FormModal from './FormModal'
+
+class SharedFormModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {visible: false};
+  }
+  
+  data = this.props.data[this.props.id - 1];
+  
+  // state = {,}
+  showModelHandler = (e) => {
+    // alert(this.data["name"])
+    
+    if (e) {
+      e.stopPropagation()
+    }
+    this.setState({visible: true,})
+  }
+  hideModelHandler = () => {
+    this.setState({visible: false,})
+  }
+  handleSubmit = (values) => {
+    console.log("values", values);
+    this.setState({visible: false,})
+  };
+  onFinishForm = (values) => {
+    console.log("onFinishForm", values);
+  }
+  
+  render() {
+    const {children, trigger, param} = this.props
+    
+    return (
+        <span>
+          {/*<p></p>*/}
+          <span onClick={this.showModelHandler}>
+                    编辑{trigger}
+                </span>
+                <Modal title={this.props.name || ''}
+                       visible={this.state.visible}
+                       onOk={this.handleSubmit}
+                       onCancel={this.hideModelHandler}
+                       okButtonProps={{htmlType: 'submit', form: 'editForm'}}
+                >
+                    <FormModal
+                        data={this.data}
+                        formId="editForm"
+                        onSubmit={this.handleSubmit}
+                    />
+                </Modal>
+            </span>
+    )
+  }
+}
+
+export default SharedFormModal
