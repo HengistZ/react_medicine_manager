@@ -17,7 +17,7 @@ class Login extends React.Component {
             <img src={logo} className="App-logo-a" alt="logo"/>
             {/*<h3>made with REACT</h3>*/}
           </div>
-          <h1 className={"login-title"}>欢迎来到药品管理系统<br/>请登录</h1>
+          <h1 className={"login-title"}>欢迎来到药品管理系统<br/>请登录：</h1>
           <LoginBox/>
         </div>
     );

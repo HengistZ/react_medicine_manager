@@ -31,18 +31,19 @@ export default class RouterView extends React.Component {
                     <Route path="/user/home">
                       <Home/>
                     </Route>
-                    <Route path="/user/one">
+                    <Route path="/user/produce">
                       <List/>
                     </Route>
-    
-                    <Route path="/user/two">
+                    
+                    <Route path="/user/buy">
                       {/*<ListC/>*/}
+                      <List/>
                     </Route>
-                    <Route path="/user/three">
-                      <listDemo/>
+                    <Route path="/user/confirm">
+                      <List/>
                     </Route>
-    
-                    <Route >
+                    
+                    <Route>
                       {/*<NotMatch/>*/}
                     </Route>
                   </Switch>

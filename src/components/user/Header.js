@@ -1,31 +1,40 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import {Col,Row} from 'antd';
+import {Col, Row} from 'antd';
 import './Header.css'
 import Util from '../../utils/utils';
+
 // import axios from '../../axios';
 
 class Header extends React.Component {
   constructor(props) {
+    let type = "用户";
+    console.log(window.localStorage.usertype)
+    console.log(window.localStorage.username)
+    if (window.localStorage.usertype == 1) {
+      type = "经销商用户"
+    }
+    if (window.localStorage.usertype == 2) {
+      type = "生产者用户"
+    }
     super(props);
     this.state = {
-      userName:Util.getStorage("userInfo").username || ''
+      usertype: type
+      // userName:Util.getStorage("userInfo").username || ''
     };
+    // this.render()
   }
   
-  
-  
   // 获取时间
-  componentDidMount(){
-    setInterval(()=>{
+  componentDidMount() {
+    setInterval(() => {
       let sysTime = Util.formateDate(new Date().getTime());
       this.setState({
         sysTime
       })
-    },1000);
+    }, 1000);
     
     // this.getWeatherApiData();
-    
     
   }
   
@@ -46,9 +55,9 @@ class Header extends React.Component {
   //   })
   // }
   // 退出登录
-  onLogout=()=>{
+  onLogout = () => {
     Util.removeStorage("userInfo");
-    window.location.href=('/');
+    window.location.href = ('/');
   }
   
   render() {
@@ -56,7 +65,7 @@ class Header extends React.Component {
         <div className="header">
           <Row className="header-top">
             <Col span="24">
-              <span>欢迎，亲爱的用户{this.state.userName}</span>
+              <span>欢迎，亲爱的 {this.state.usertype} {window.localStorage.username} </span>
               <a className={"a1"} onClick={this.onLogout}>退出</a>
             </Col>
           </Row>
