@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Modal, Form, Input, Button} from 'antd'
-import FormModal from './FormModal'
+import FormModal from './TradeForm'
 import "./Dialog.css"
 
 class SharedFormModal extends Component {
@@ -38,7 +38,7 @@ class SharedFormModal extends Component {
         <span>
           {/*<p></p>*/}
           <button className={"edit-button"} onClick={this.showModelHandler}>
-                    生产药品{trigger}
+                    生成交易{trigger}
                 </button>
                 <Modal title={this.props.name || ''}
                        visible={this.state.visible}

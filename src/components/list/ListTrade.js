@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Modal, Space, Table} from 'antd';
 import "./List.css"
-import DialogB from "../dialog/DialogB";
+import Dialog from "../dialog/DialogTrade";
 import axios from "axios";
 
 // var medData=['处方药','保健品','注射类药物','管制药品'];
@@ -87,7 +87,7 @@ class ListTrade extends React.Component {
   ];
   
   confirm(e, index) {
-    alert(index)
+    alert('正在上链……')
     let curr = this.state.data[index];
     console.log(curr)
     axios.post('http://127.0.0.1:80/trade/confirm', {
@@ -99,7 +99,11 @@ class ListTrade extends React.Component {
       receiveAddress: curr.receiveAddress,
       receiveTime: curr.receiveTime
     }).then(response => {
-      alert('上链成功!')
+      console.log(response.data)
+      if(response.data.code==200){
+        alert('上链成功!')
+      }
+      else alert('上链失败')
     }).catch(error => {
       alert('上链失败！')
     })
@@ -126,7 +130,8 @@ class ListTrade extends React.Component {
     return <div className={"list-main"}>
       <div>
         <h1 className={'h13'}>药品交易</h1>
-        <button className={'add-button'}>新增交易</button>
+        {/*<button className={'add-button'}>新增交易</button>*/}
+        <Dialog data={this.state.data}/>
       </div>
       <Table
           columns={this.columns}

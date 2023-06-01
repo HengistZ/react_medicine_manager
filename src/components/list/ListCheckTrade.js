@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Modal, Space, Table} from 'antd';
 import {useState} from 'react';
 import "./List.css"
-import DialogB from "../dialog/DialogB";
+import DialogB from "../dialog/DialogProduce";
 import axios from "axios";
 
 var medData = ['处方药', '保健品', '注射类药物', '管制药品'];
@@ -82,7 +82,7 @@ class ListTrade extends React.Component {
   ];
   
   getData() {
-    axios.get('http://127.0.0.1:80/trade/search')
+    axios.get('http://127.0.0.1:80/trade/check')
         .then(response => {
           this.setState({data: response.data.data})
           console.log(this.state.data)

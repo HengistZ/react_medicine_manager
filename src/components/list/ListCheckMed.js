@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Modal, Space, Table} from 'antd';
 import {useState} from 'react';
 import "./List.css"
-import Dialog from "../dialog/DialogB";
+import Dialog from "../dialog/DialogProduce";
 import axios from "axios";
 
 var medData = ['处方药', '保健品', '注射类药物', '管制药品'];

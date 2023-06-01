@@ -53,18 +53,32 @@ class LoginBox extends React.Component {
     window.localStorage.usertype = this.state.usertype
     window.localStorage.username = this.state.username
     
-    let urls = ['http://127.0.0.1:80/producer/subProducerLogin',
+    let urls = [
       'http://127.0.0.1:80/user/subUserLogin',
-      'http://127.0.0.1:80/seller/subSellerLogin'];
+      'http://127.0.0.1:80/seller/subSellerLogin',
+      'http://127.0.0.1:80/producer/subProducerLogin'];
     
-    axios.post(urls[parseInt(this.state.usertype)],
-        {},
-        {
-          params: {
-            username: 'admin',
-            password: 'admin'
-          }
-        }).then(response => {
+    // console.log('usertype:' + this.state.usertype)
+    Promise.all([
+      axios.post(urls[0], {}, {
+        params: {
+          username: 'admin',
+          password: 'admin'
+        }
+      }),
+      axios.post(urls[1], {}, {
+        params: {
+          username: 'admin',
+          password: 'admin'
+        }
+      }),
+      axios.post(urls[2], {}, {
+        params: {
+          username: 'admin',
+          password: 'admin'
+        }
+      })
+    ]).then(response => {
       console.log(response.data)
       alert('登录成功！')
       this.props.history.push("/user/home");
