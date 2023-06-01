@@ -15,7 +15,7 @@ class Header extends React.Component {
       type = "经销商用户"
     }
     if (window.localStorage.usertype == 2) {
-      type = "生产者用户"
+      type = "生产商用户"
     }
     super(props);
     this.state = {

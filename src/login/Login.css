@@ -19,6 +19,16 @@
   background-size: 100% 100%;
 }
 
+.logo-title{
+  height: 20vmin;
+  pointer-events: none;
+  position: absolute;
+  left: 40%;
+  color:#00aef9;
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .login-title {
   position: fixed;
   width: 50%;

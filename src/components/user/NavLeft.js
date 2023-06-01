@@ -16,16 +16,20 @@ class NavLeft extends React.Component {
       key: '/user/home'
     },
     {
+      title: "药品溯源",
+      key: '/user/checkMed'
+    },
+    {
+      title: "交易溯源",
+      key: '/user/checkTrade'
+    },
+    {
       title:"药品生产",
       key: "/user/produce"
     },
     {
       title:"药品交易",
       key:"/user/buy"
-    },
-    {
-      title:"药品上链",
-      key:"/user/confirm"
     },
   ];
   

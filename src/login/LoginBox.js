@@ -3,6 +3,8 @@ import {UserOutlined, LockOutlined} from '@ant-design/icons';
 import {Form, Input, Button, Select} from 'antd';
 import {withRouter} from 'react-router-dom';
 import "./Login.css";
+import SignupDialog from "./SignupDialog";
+import axios from "axios";
 
 class LoginBox extends React.Component {
   constructor(props) {
@@ -31,27 +33,45 @@ class LoginBox extends React.Component {
     this.setState({
       usertype: value
     })
+    console.log(this.state.usertype)
   }
   
   submit = (sign) => {
     
     // alert(this.state.username + " " + this.state.password + "已登录")
-    if(!this.state.username){
+    if (!this.state.username) {
       alert("请输入账号！")
       return;
     }
-    if(!this.state.password){
+    if (!this.state.password) {
       alert("请输入密码！")
       return;
     }
-    if(sign==="sign"){
-      alert("注册成功！")
-    }
+    // if (sign === "sign") {
+    //   alert("注册成功！")
+    // }
     window.localStorage.usertype = this.state.usertype
     window.localStorage.username = this.state.username
-    // alert(window.localStorage.usertype)
-    // alert(window.localStorage.username)
-    this.props.history.push("/user/home");
+    
+    let urls = ['http://127.0.0.1:80/producer/subProducerLogin',
+      'http://127.0.0.1:80/user/subUserLogin',
+      'http://127.0.0.1:80/seller/subSellerLogin'];
+    
+    axios.post(urls[parseInt(this.state.usertype)],
+        {},
+        {
+          params: {
+            username: 'admin',
+            password: 'admin'
+          }
+        }).then(response => {
+      console.log(response.data)
+      alert('登录成功！')
+      this.props.history.push("/user/home");
+    }).catch(error => {
+      console.log(error)
+      alert('网络错误，请重试！')
+    })
   }
   
   render() {
@@ -70,12 +90,12 @@ class LoginBox extends React.Component {
                           label: '普通用户',
                         },
                         {
-                          value: 1,
-                          label: '经销商用户',
+                          value: 2,
+                          label: '生产商用户',
                         },
                         {
-                          value: 2,
-                          label: '生产者用户',
+                          value: 1,
+                          label: '经销商用户',
                         },
                       ]}/>
             </Form.Item>
@@ -102,10 +122,12 @@ class LoginBox extends React.Component {
                     className="login-form-button" onClick={this.submit}>
               登录
             </Button>
-            <Button type="primary" htmlType="submit"
-                    className="login-form-button" onClick={e=>this.submit("sign")}>
-              注册
-            </Button>
+            {/*<Button type="primary" htmlType="submit"*/}
+            {/*        className="login-form-button"*/}
+            {/*        onClick={e => this.submit("sign")}>*/}
+            {/*  注册*/}
+            {/*</Button>*/}
+            <SignupDialog/>
           </Form.Item>
         </div>
     );

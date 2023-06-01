@@ -14,6 +14,7 @@ class Login extends React.Component {
     return (
         <div className="login-main">
           <div className={"react-box"}>
+            <p className={"logo-title"}>made with</p>
             <img src={logo} className="App-logo-a" alt="logo"/>
             {/*<h3>made with REACT</h3>*/}
           </div>

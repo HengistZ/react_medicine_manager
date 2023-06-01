@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Modal, Form, Input, Button} from 'antd'
 import FormModal from './FormModal'
+import "./Dialog.css"
 
 class SharedFormModal extends Component {
   constructor(props) {
@@ -36,9 +37,9 @@ class SharedFormModal extends Component {
     return (
         <span>
           {/*<p></p>*/}
-          <span onClick={this.showModelHandler}>
-                    编辑{trigger}
-                </span>
+          <button className={"edit-button"} onClick={this.showModelHandler}>
+                    生产药品{trigger}
+                </button>
                 <Modal title={this.props.name || ''}
                        visible={this.state.visible}
                        onOk={this.handleSubmit}

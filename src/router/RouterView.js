@@ -3,11 +3,12 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import './RouterView.css'
 import App from "../App";
 import Login from "../login/Login";
-import Test from "../test/Test";
 import UserIndex from "../components/user/UserIndex";
-import BtnTest from "../test/BtnTest";
 import Home from "../components/pages/Home";
-import List from "../components/list/List";
+import ListProduce from "../components/list/ListProduce";
+import ListTrade from "../components/list/ListTrade";
+import ListCheckMed from "../components/list/ListCheckMed";
+import ListCheckTrade from "../components/list/ListCheckTrade";
 // import ListC from "../components/list/ListC";
 
 export default class RouterView extends React.Component {
@@ -31,21 +32,23 @@ export default class RouterView extends React.Component {
                     <Route path="/user/home">
                       <Home/>
                     </Route>
+  
+                    <Route path="/user/checkMed">
+                      <ListCheckMed/>
+                    </Route>
+  
+                    <Route path="/user/checkTrade">
+                      <ListCheckTrade/>
+                    </Route>
+                    
                     <Route path="/user/produce">
-                      <List/>
+                      <ListProduce/>
                     </Route>
                     
                     <Route path="/user/buy">
-                      {/*<ListC/>*/}
-                      <List/>
-                    </Route>
-                    <Route path="/user/confirm">
-                      <List/>
+                      <ListTrade/>
                     </Route>
                     
-                    <Route>
-                      {/*<NotMatch/>*/}
-                    </Route>
                   </Switch>
                 </UserIndex>
             }/>

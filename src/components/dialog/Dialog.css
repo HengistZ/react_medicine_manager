@@ -1,0 +1,9 @@
+.edit-button{
+  /*height: 40px;*/
+  /*width: 80px;*/
+  text-align: center;
+  padding: 5px 10px;
+  background-color: #00aef9;
+  border: black 1px solid;
+  border-radius: 10%;
+}

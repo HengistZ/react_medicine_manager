@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {Form, Input, InputNumber} from 'antd'
+import {UserOutlined} from "@ant-design/icons";
 
 class SharedForm extends Component {
   constructor(props) {
@@ -29,22 +30,64 @@ class SharedForm extends Component {
     
     return (
         <Form id={formId} layout="horizontal" onFinish={this.handleSubmit}>
-          <Form.Item  name='name' label="Name" rules={[{isRequired: true}]}>
-            <Input placeholder={this.props.data["name"]} />
+          <Form.Item name="med_id" label="药品id">
+            <Input name="med_id"
+                   placeholder="med_id"
+                   onChange={e => this.onInputChange(e, "med_id")}/>
           </Form.Item>
-          <Form.Item name={['user', 'email']} label="Email"
-                     rules={[{type: 'email'}]}>
-            <Input/>
+          
+          <Form.Item name="producer_id" label="生产商id">
+            <Input name="producer_id"
+                   placeholder="producer_id"
+                   onChange={e => this.onInputChange(e, "producer_id")}/>
           </Form.Item>
-          <Form.Item name={['user', 'age']} label="Age"
-                     rules={[{type: 'number', min: 0, max: 99}]}>
-            <InputNumber/>
+          
+          <Form.Item name="med_type" label="药品种类">
+            <Input name="med_type"
+                   placeholder="med_type"
+                   onChange={e => this.onInputChange(e, "med_type")}/>
           </Form.Item>
-          <Form.Item name={['user', 'website']} label="Website">
-            <Input/>
+          
+          <Form.Item name="med_batch" label="药品批次">
+            <Input name="med_batch"
+                   placeholder="med_batch"
+                   onChange={e => this.onInputChange(e, "med_batch")}/>
           </Form.Item>
-          <Form.Item name={['user', 'introduction']} label="Introduction">
-            <Input.TextArea/>
+          
+          <Form.Item name="med_price" label="药品价格">
+            <Input name="med_price"
+                   placeholder="med_price"
+                   onChange={e => this.onInputChange(e, "med_price")}/>
+          </Form.Item>
+          
+          <Form.Item name="med_name" label="药品名称">
+            <Input name="med_name"
+                   placeholder="med_name"
+                   onChange={e => this.onInputChange(e, "med_name")}/>
+          </Form.Item>
+          
+          <Form.Item name="seller_id" label="销售人员id">
+            <Input name="seller_id"
+                   placeholder="seller_id"
+                   onChange={e => this.onInputChange(e, "seller_id")}/>
+          </Form.Item>
+          
+          <Form.Item name="resp_name" label="责任人名字">
+            <Input name="resp_name"
+                   placeholder="resp_name"
+                   onChange={e => this.onInputChange(e, "resp_name")}/>
+          </Form.Item>
+          
+          <Form.Item name="resp_mail" label="责任人邮箱">
+            <Input name="resp_mail"
+                   placeholder="resp_mail"
+                   onChange={e => this.onInputChange(e, "resp_mail")}/>
+          </Form.Item>
+          
+          <Form.Item name="resp_phone" label="责任人电话">
+            <Input name="resp_phone"
+                   placeholder="resp_phone"
+                   onChange={e => this.onInputChange(e, "resp_phone")}/>
           </Form.Item>
         </Form>
     )
